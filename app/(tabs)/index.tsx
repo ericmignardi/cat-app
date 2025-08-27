@@ -40,18 +40,18 @@ export default function HomeScreen() {
   };
 
   return (
-    <View>
+    <View className='flex flex-col justify-between items-center gap-6 text-center p-4'>
       <TouchableOpacity onPress={takePhoto}>
         <Text>Take Photo</Text>
       </TouchableOpacity>
       <FlatList
+        className='w-full'
+        numColumns={3}
+        contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}
         data={images}
         keyExtractor={(uri) => uri}
-        numColumns={1}
-        contentContainerStyle={{ padding: 5 }}
-        style={{borderRadius: 10, borderColor: 'black', borderWidth: 2}}
         renderItem={({ item }) => (
-          <Image source={{ uri: item }} style={{ width: '100%', height: 100}} />
+          <Image source={{ uri: item }} style={{ width: 100, height: 100}} />
         )}
       />
     </View>
